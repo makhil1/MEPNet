@@ -14,5 +14,5 @@ phases:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
-      - eval $(aws ecr get-login | sed 's|https://||')
+      - eval $(aws ecr get-login --no-include-email --profile | sed 's|https://||')
       - docker push 692105698754.dkr.ecr.eu-west-1.amazonaws.com/mepnet
