@@ -11,8 +11,6 @@ phases:
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}'
   build:
     commands:
-    - cd ./Code/CloudMosaic/UI/CloudMosaic.Frontend
-      - dotnet ecs push-image --tag $DOCKER_TAG
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
