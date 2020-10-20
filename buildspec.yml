@@ -15,4 +15,4 @@ phases:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       - docker tag mepnet:latest 692105698754.dkr.ecr.eu-west-1.amazonaws.com/mepnet:latest
-      - docker push 692105698754.dkr.ecr.eu-west-1.amazonaws.com/mepnet:latest
+      - docker push 692105698754.dkr.ecr.eu-west-1.amazonaws.com/mepnet
