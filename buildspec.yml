@@ -2,15 +2,16 @@ version: 0.2
 
 phases:
   pre_build:
-  install:
     commands:
-      - dotnet tool install -g Amazon.ECS.Tools
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --no-include-email --region us-east-2 )
       - REPOSITORY_URI=692105698754.dkr.ecr.eu-west-1.amazonaws.com/mepnet
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+      install:
+    commands:
+      - dotnet tool install -g Amazon.ECS.Tools
   build:
     commands:
     - cd ./Code/CloudMosaic/UI/CloudMosaic.Frontend
